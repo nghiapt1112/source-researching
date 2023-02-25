@@ -104,6 +104,10 @@ pipeline {
     post {
         always { 
             cleanWs()
+            echo 'I will always say Hello again!'
+            sh """
+                docker rmi -f c32c84814084 c32c84814084 e9f851989d99
+            """
         }
     }
 }
