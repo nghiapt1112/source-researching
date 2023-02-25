@@ -2,8 +2,8 @@ pipeline {
     agent {label 'host'}
 
     tools {
-        maven '3.8.4' 
-        jdk '11' 
+        maven '390' 
+        jdk 'jdk11' 
     }
 
     // Global variables which are not changed by environments/branches
