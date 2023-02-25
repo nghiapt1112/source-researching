@@ -1,5 +1,5 @@
 pipeline {
-    agent {label 'host'}
+    //agent {label 'host'}
 
     tools {
         maven '390' 
