@@ -4,10 +4,7 @@ pipeline {
 
     tools {
         maven '390' 
-        jdk 'jdk17'
-    }
-    options {
-    	buildDiscarder(logRotator(numToKeepStr: '30', artifactNumToKeepStr: '30'))
+        jdk 'jdk11' 
     }
 
     // Global variables which are not changed by environments/branches
@@ -15,7 +12,7 @@ pipeline {
         AWS_REGION = "ap-southeast-1"
         BUILDVERSION = sh(returnStdout: true, script: "echo `date +%Y%d%m%H%M%S`").trim()
         COMMITHASH = sh(returnStdout: true, script: "git rev-parse HEAD").trim()
-//         DOCKERFILE_PATH = "dev/Dockerfile"
+//         DOCKERFILE_PATH = "alpha/Dockerfile"
 //         PROFILE = "default"
     }
 
@@ -37,13 +34,13 @@ pipeline {
                             env.PROFILE= "default"
                         }
                     }
-                    if  (env.BRANCH_NAME == "master") {
+                    if  (env.BRANCH_NAME == "alpha") {
                             env.AWS_ECR = "750078108771.dkr.ecr.ap-southeast-1.amazonaws.com"
                             env.ENVIRONTMENT = "alpha"
-                            env.DOCKERFILE_PATH = "dev/Dockerfile"
-                            env.FARGATE_SERVICE = "dev-aladdin-user"
-                            env.ECR_REPO = "dev-aladdin-user"
-                            env.BUCKET = "dev-aladdin-codedeploy-config"
+                            env.DOCKERFILE_PATH = "alpha/Dockerfile"
+                            env.FARGATE_SERVICE = "alpha-aladdin-user"
+                            env.ECR_REPO = "alpha-aladdin-user"
+                            env.BUCKET = "alpha-aladdin-codedeploy-config"
                             env.PROFILE= "default"
                     }
 
@@ -63,7 +60,9 @@ pipeline {
         // Configure stage
         stage ('Configure') {
             steps {
-                echo 'AWS login in this step'
+                sh """
+                    aws ecr get-login-password --region ${AWS_REGION} --profile ${PROFILE} | sudo docker login --username AWS --password-stdin ${AWS_ECR}/${env.FARGATE_SERVICE}
+                """
             }
         }
 
@@ -71,10 +70,13 @@ pipeline {
         stage ('Build Image') {
             steps {
                 sh """
-                    cd ./csv.excel
                     ./gradlew build -x test
-                    docker build -t aws_ecr/ecr_repo:${COMMITHASH} -f ./cicd/${DOCKERFILE_PATH} .
-                    docker tag aws_ecr/ecr_repo:${COMMITHASH} aws_ecr/ecr_repo:${BUILDVERSION}
+                    docker build -t ${AWS_ECR}/${ECR_REPO}:${COMMITHASH} -f ./cicd/${DOCKERFILE_PATH} .
+                    docker tag ${AWS_ECR}/${ECR_REPO}:${COMMITHASH} ${AWS_ECR}/${ECR_REPO}:${BUILDVERSION}
+                    docker push ${AWS_ECR}/${ECR_REPO}:${COMMITHASH}
+                    docker push ${AWS_ECR}/${ECR_REPO}:${BUILDVERSION}
+                    docker rmi -f ${AWS_ECR}/${ECR_REPO}:${COMMITHASH}
+                    docker rmi -f ${AWS_ECR}/${ECR_REPO}:${BUILDVERSION}
                 """
             }
         }

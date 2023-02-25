@@ -22,7 +22,7 @@ public class File {
 
     private void execFile(InputStream stream, int sec) throws IOException, InterruptedException {
         String fileContent = IOUtils.toString(stream, Charset.defaultCharset());
-        ArrayList<TestCase> testCases = JsonUtils.toCollection(fileContent, ArrayList.class, TestCase.class);
+//        ArrayList<TestCase> testCases = JsonUtils.toCollection(fileContent, ArrayList.class, TestCase.class);
 
 //        for (TestCase testCase : testCases) {
 //            Thread.sleep(1000 * sec);
