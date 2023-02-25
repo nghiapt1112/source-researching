@@ -1,0 +1,112 @@
+pipeline {
+    agent {label 'host'}
+
+    tools {
+        maven '3.8.4' 
+        jdk '11' 
+    }
+
+    // Global variables which are not changed by environments/branches
+    environment {
+        AWS_REGION = "ap-southeast-1"
+        BUILDVERSION = sh(returnStdout: true, script: "echo `date +%Y%d%m%H%M%S`").trim()
+        COMMITHASH = sh(returnStdout: true, script: "git rev-parse HEAD").trim()
+//         DOCKERFILE_PATH = "alpha/Dockerfile"
+//         PROFILE = "default"
+    }
+
+    stages {
+        // Variables which are changed by environments/branches
+        stage('Environment') {
+            steps {
+                script {
+                    EXISTTAG = sh(returnStdout: true, script: "git tag --points-at HEAD | awk NF").trim()
+                    if (EXISTTAG) {
+                        GITTAG = sh(returnStdout: true, script: "git describe --exact-match --abbrev=0").trim()
+                        if  (GITTAG.contains("release-")) {
+                            env.AWS_ECR = "750078108771.dkr.ecr.ap-southeast-1.amazonaws.com"
+                            env.ENVIRONTMENT = "alpha"
+                            env.DOCKERFILE_PATH = "alpha/Dockerfile"
+                            env.FARGATE_SERVICE = "alpha-aladdin-user"
+                            env.ECR_REPO = "alpha-aladdin-user"
+                            env.BUCKET = "alpha-aladdin-codedeploy-config"
+                            env.PROFILE= "default"
+                        }
+                    }
+                    if  (env.BRANCH_NAME == "alpha") {
+                            env.AWS_ECR = "750078108771.dkr.ecr.ap-southeast-1.amazonaws.com"
+                            env.ENVIRONTMENT = "alpha"
+                            env.DOCKERFILE_PATH = "alpha/Dockerfile"
+                            env.FARGATE_SERVICE = "alpha-aladdin-user"
+                            env.ECR_REPO = "alpha-aladdin-user"
+                            env.BUCKET = "alpha-aladdin-codedeploy-config"
+                            env.PROFILE= "default"
+                    }
+
+                    if (env.BRANCH_NAME == "develop_new") {
+                        env.AWS_ECR = "235410405967.dkr.ecr.ap-southeast-1.amazonaws.com"
+                        env.ENVIRONTMENT = "dev"
+                        env.DOCKERFILE_PATH = "dev/Dockerfile"
+                        env.FARGATE_SERVICE = "dev-aladdin-user"
+                        env.ECR_REPO = "dev-aladdin-user"
+                        env.BUCKET = "dev-aladdin-codedeploy-config"
+                        env.PROFILE= "aladdin-dev"
+                    }
+                }
+            }
+        }
+
+        // Configure stage
+        stage ('Configure') {
+            steps {
+                sh """
+                    aws ecr get-login-password --region ${AWS_REGION} --profile ${PROFILE} | sudo docker login --username AWS --password-stdin ${AWS_ECR}/${env.FARGATE_SERVICE}
+                """
+            }
+        }
+
+        // Build stage
+        stage ('Build Image') {
+            steps {
+                sh """
+                    PATH=$PATH:/home/ubuntu/Download/apache-maven-3.8.4/bin/ && mvn clean install -Dmaven.test.skip=true
+                    sudo docker build -t ${AWS_ECR}/${ECR_REPO}:${COMMITHASH} -f ./cicd/${DOCKERFILE_PATH} .
+                    sudo docker tag ${AWS_ECR}/${ECR_REPO}:${COMMITHASH} ${AWS_ECR}/${ECR_REPO}:${BUILDVERSION}
+                    sudo docker push ${AWS_ECR}/${ECR_REPO}:${COMMITHASH}
+                    sudo docker push ${AWS_ECR}/${ECR_REPO}:${BUILDVERSION}
+                    sudo docker rmi -f ${AWS_ECR}/${ECR_REPO}:${COMMITHASH}
+                    sudo docker rmi -f ${AWS_ECR}/${ECR_REPO}:${BUILDVERSION}
+                """
+            }
+        }
+
+        // Create Deployment
+        stage('Create Deployment') {
+            steps {
+                sh """
+                    sed -i "s|IMAGE_NAME|${AWS_ECR}/${ECR_REPO}:${COMMITHASH}|g" ./cicd/${env.ENVIRONTMENT}/task-definition.json
+                    aws --profile ${PROFILE} ecs register-task-definition \
+                        --cli-input-json file://cicd/${env.ENVIRONTMENT}/task-definition.json \
+                        --region ${AWS_REGION}
+                    aws --profile ${PROFILE} s3 cp cicd/${env.ENVIRONTMENT}/appspec.yaml s3://${BUCKET}/${env.FARGATE_SERVICE}/appspec.yaml
+                """
+
+                retry(5) {
+                    sh """
+                        aws --profile ${PROFILE} deploy create-deployment \
+                            --cli-input-json file://cicd/${env.ENVIRONTMENT}/deployment.json \
+                            --region ${AWS_REGION} || { sleep 60 && exit 1; }
+                    """
+                }
+            }
+        }
+    }
+
+    post {
+        always { 
+            cleanWs()
+        }
+    }
+}
+
+
