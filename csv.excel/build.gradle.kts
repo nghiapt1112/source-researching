@@ -26,7 +26,8 @@ dependencies {
 	annotationProcessor("org.projectlombok:lombok")
 	implementation("commons-io:commons-io:2.11.0")
 
-
+	implementation( "org.apache.poi:poi-ooxml:5.2.3")
+	implementation( "org.apache.poi:poi:5.2.3")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
