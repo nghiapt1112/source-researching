@@ -1,0 +1,84 @@
+server:
+  port: 7080
+
+logging:
+#  file: ./logs/gateway.log
+  level:
+    root: INFO
+    com:
+      y3technologies: DEBUG
+
+  pattern:
+    console: '%-130(%d{yyyy-MM-dd HH:mm:ss.SSS} %-5p ${PID} - [%8.15t] %clr(%C{1}.%M:){cyan}%clr(%L){red}) - %m%n'
+    file: '%-130(%d{yyyy-MM-dd HH:mm:ss.SSS} %-5p ${PID} - [%8.15t] %C{1}.%M:%L) - %m%n'
+
+
+
+management:
+  endpoint:
+    health:
+      show-details: always
+    gateway:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      globalcors:
+        add-to-simple-url-handler-mapping: true
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowed-methods: "*"
+            allowed-headers: "*"
+            exposed-headers:
+              - "Cache-Control"
+              - "Authorization"
+              - "Content-Language"
+              - "Content-Length"
+              - "Cache-Control"
+              - "Content-Type"
+              - "Expires"
+              - "Last-Modified"
+              - "Pragma"
+              - "Content-Disposition"
+
+      routes:
+        - id: product-service
+          uri: lb://product-service
+          predicates:
+            - Path=/product-service/**
+          filters:
+            - StripPrefix=1
+            - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials Access-Control-Expose-Headers Vary
+        - id: cart-service
+          uri: lb://cart-service
+          predicates:
+            - Path=/cart-service/**
+          filters:
+            - StripPrefix=1
+#        - id: openapi
+#          uri: localhost:${server.port}
+#          predicates:
+#            - Path=/v3/api-docs/**
+#          filters:
+#            - RewritePath=/v3/api-docs/(?<path>.*), /$\{path}/v3/api-docs
+
+reactive:
+  feign:
+    circuit:
+      breaker:
+        enabled: false
+    loadbalancer:
+      enabled: true
+
+api:
+  version:
+    aas: v1

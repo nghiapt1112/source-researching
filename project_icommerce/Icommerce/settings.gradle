@@ -1,0 +1,7 @@
+rootProject.name = 'Icommerce'
+
+include('supporters:core',':business:cart-service', ':business:product-service', ':supporters:discovery-server', ':supporters:api-gateway');
+
+
+
+//project(':core').name= 'n_core'

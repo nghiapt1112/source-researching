@@ -1,0 +1,15 @@
+#logging.level.org.hibernate.SQL: debug
+#logging.level.org.hibernate.type.descriptor.sql: trace
+app.mysql:
+  host: localhost
+  port: 3307
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver # newer
+    url: jdbc:mysql://${app.mysql.host}:${app.mysql.port}/product_test?createDatabaseIfNotExist=true&autoReconnect=true&useSSL=false&useUnicode=yes&characterEncoding=UTF-8
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: validate

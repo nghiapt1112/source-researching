@@ -1,0 +1,110 @@
+# Use root/example as user/password credentials
+version: '3.9'
+
+services:
+########### Consul #############
+  consul:
+    image: consul:1.9
+    mem_limit: 4098m
+    mem_reservation: 1024M
+    cpus: 1
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+    environment:
+      CONSUL_LOCAL_CONFIG: '{"leave_on_terminate": true}'
+    command: agent -dev -client=0.0.0.0
+    ports:
+      - 8502:8500
+############### MySQL DEV ###############
+  mysqlv8:
+    image: mysql:8
+    mem_limit: 4098m
+    mem_reservation: 1024M
+    cpus: 1
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+    command: --default-authentication-plugin=mysql_native_password --lower_case_table_names=1
+    restart: always
+    ports:
+      - 3307:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    depends_on:
+      - consul
+    healthcheck:
+        test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+        timeout: 20s
+        retries: 10
+
+############### gw-Service ###############
+  sup-gw:
+    image: sup-gw
+    build:
+      context: ./deployment
+      dockerfile: sup-gw
+    mem_limit: 4098m
+    mem_reservation: 1024M
+    cpus: 1
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 4
+    environment:
+      SERVER_PORT: 37080
+    network_mode: "host"
+    depends_on:
+      - mysqlv8
+
+############### PRODUCT-Service ###############
+  buss-product:
+    image: buss-product
+    build:
+      context: ./deployment
+      dockerfile: buss-product
+    mem_limit: 4098m
+    mem_reservation: 1024M
+    cpus: 1
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 4
+    environment:
+      SERVER_PORT: 38081
+      MYSQL_ROOT_PASSWORD: root
+      SPRING_CLOUD_CONSUL_HOST: localhost
+      SPRING_CLOUD_CONSUL_PORT: 8502
+      logging.level.org.hibernate.SQL: debug
+      logging.level.org.hibernate.type.descriptor.sql: trace
+      SPRING_DATASOURCE_URL: 'jdbc:mysql://localhost:3307/product_dev?createDatabaseIfNotExist=true&autoReconnect=true&useSSL=false&useUnicode=yes&characterEncoding=UTF-8'
+    network_mode: "host"
+    depends_on:
+      - mysqlv8
+
+############### CART-Service ###############
+  buss-cart:
+    image: buss-cart
+    build:
+      context: ./deployment
+      dockerfile: buss-cart
+    mem_limit: 4098m
+    mem_reservation: 1024M
+    cpus: 1
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 4
+    environment:
+      SERVER_PORT: 38082
+      MYSQL_ROOT_PASSWORD: root
+      SPRING_CLOUD_CONSUL_HOST: localhost
+      SPRING_CLOUD_CONSUL_PORT: 8502
+      logging.level.org.hibernate.SQL: debug
+      logging.level.org.hibernate.type.descriptor.sql: trace
+      SPRING_DATASOURCE_URL: 'jdbc:mysql://localhost:3307/cart_dev?createDatabaseIfNotExist=true&autoReconnect=true&useSSL=false&useUnicode=yes&characterEncoding=UTF-8'
+    network_mode: "host"
+    depends_on:
+      - mysqlv8

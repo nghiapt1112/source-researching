@@ -1,0 +1,36 @@
+#logging.level.org.hibernate.SQL: debug
+#logging.level.org.hibernate.type.descriptor.sql: trace
+app.mysql:
+  host: localhost
+  port: 3307
+
+spring:
+  output:
+    ansi:
+      enabled: ALWAYS
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver # newer
+    url: jdbc:mysql://${app.mysql.host}:${app.mysql.port}/product_dev?createDatabaseIfNotExist=true&autoReconnect=true&useSSL=false&useUnicode=yes&characterEncoding=UTF-8
+    username: root
+    password: root
+    hikari:
+      idle-timeout: 10000
+      minimum-idle: 10
+      connection-timeout: 5000
+      maximum-pool-size: 100
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        connection:
+          characterEncoding: utf-8
+          charSet: utf-8
+          useUnicode: true
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        format_sql: true
+        show_sql: true
+        globally_quoted_identifiers: true
+        generate-ddl: true
+server:
+  port: 8081

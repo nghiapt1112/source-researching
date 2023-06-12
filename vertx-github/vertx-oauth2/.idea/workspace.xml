@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b5c2f59c-55c7-4297-8584-3114201c31a0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../React-Firebase-Cloud-Messaging-Demo/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../React-Firebase-Cloud-Messaging-Demo/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../React-Firebase-Cloud-Messaging-Demo/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../React-Firebase-Cloud-Messaging-Demo/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../React-Firebase-Cloud-Messaging-Demo/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../React-Firebase-Cloud-Messaging-Demo/public/firebase-messaging-sw.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../React-Firebase-Cloud-Messaging-Demo/public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../React-Firebase-Cloud-Messaging-Demo/public/logo192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../React-Firebase-Cloud-Messaging-Demo/public/logo512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../React-Firebase-Cloud-Messaging-Demo/public/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../React-Firebase-Cloud-Messaging-Demo/public/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../React-Firebase-Cloud-Messaging-Demo/src/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../React-Firebase-Cloud-Messaging-Demo/src/App.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../React-Firebase-Cloud-Messaging-Demo/src/App.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../React-Firebase-Cloud-Messaging-Demo/src/firebaseNotifications/Notification.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../React-Firebase-Cloud-Messaging-Demo/src/firebaseNotifications/firebase.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../React-Firebase-Cloud-Messaging-Demo/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../React-Firebase-Cloud-Messaging-Demo/src/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../React-Firebase-Cloud-Messaging-Demo/src/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../React-Firebase-Cloud-Messaging-Demo/src/reportWebVitals.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../React-Firebase-Cloud-Messaging-Demo/src/setupTests.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../React-Firebase-Cloud-Messaging-Demo/yarn.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../csv.excel/src/test/java/com/example/filex/ApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../csv.excel/src/test/java/com/example/filex/ApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../vertx/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-starter/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-starter/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-starter/README.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-starter/build.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-starter/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-starter/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-starter/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-starter/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-starter/settings.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-starter/src/main/java/org/nghia/vertx/starter/CreatePostCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-starter/src/main/java/org/nghia/vertx/starter/DataInitializer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-starter/src/main/java/org/nghia/vertx/starter/MainVerticle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-starter/src/main/java/org/nghia/vertx/starter/Post.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-starter/src/main/java/org/nghia/vertx/starter/PostHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-starter/src/main/java/org/nghia/vertx/starter/PostNotFoundException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-starter/src/main/java/org/nghia/vertx/starter/PostRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-starter/src/main/java/org/nghia/vertx/starter/PostsHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-starter/src/main/resources/config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-starter/src/test/java/org/nghia/vertx/starter/TestMainVerticle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-tut-java/starter-2.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-tut-java/starter-2/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-tut-java/starter-2/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-tut-java/starter-2/README.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-tut-java/starter-2/build.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-tut-java/starter-2/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-tut-java/starter-2/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-tut-java/starter-2/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-tut-java/starter-2/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-tut-java/starter-2/settings.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-tut-java/starter-2/src/main/java/com/nghia/vertx/starter_2/MainVerticle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-tut-java/starter-2/src/test/java/com/nghia/vertx/starter_2/TestMainVerticle.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2OlQchSUMmoQ2AOYrU5uFWpoypH" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/ptnghia1/data/sources/nghia/source-researching/vertx-github/vertx-oauth2&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b5c2f59c-55c7-4297-8584-3114201c31a0" name="Changes" comment="" />
+      <created>1682132769190</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1682132769190</updated>
+      <workItem from="1682132770308" duration="42000" />
+      <workItem from="1686214928692" duration="8000" />
+      <workItem from="1686504742899" duration="14000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

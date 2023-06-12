@@ -1,0 +1,75 @@
+[
+  {
+    "desc": "Find Product List",
+    "api": "/product/find?branch=branch&page=0&size=100",
+    "action": "GET",
+    "input": {
+    },
+    "output": {
+      "status": 200,
+      "body": {
+        "res": {
+          "details": [
+            {
+              "productId": 7,
+              "name": "Hoddies",
+              "description": "Description - 3"
+            },
+            {
+              "productId": 5,
+              "description": "Description - 6",
+              "category": "Clothing"
+            },
+            {
+              "productId": 1,
+              "description": "Description - 8",
+              "category": "Clothing"
+            },
+            {
+              "productId": 2,
+              "description": "Description - 10",
+              "category": "Clothing"
+            },
+            {
+              "productId": "$p1",
+              "description": "$description1"
+            },
+            {
+              "productId": 4
+            },
+            {
+              "productId": 6
+            },
+            {
+              "productId": 8
+            },
+            {
+              "productId": 9
+            },
+            {
+              "productId": 10
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "desc": "Find Product Detail with ID #p1",
+    "api": "/product/find/#p1",
+    "action": "GET",
+    "input": {
+    },
+    "output": {
+      "status": 200,
+      "body": {
+        "res": {
+          "productId": 1,
+          "name": "Hoddies",
+          "description": "#description1",
+          "category": "Clothing"
+        }
+      }
+    }
+  }
+]
