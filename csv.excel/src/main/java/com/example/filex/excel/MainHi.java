@@ -20,7 +20,6 @@ public class MainHi {
 
         for (int i = 1; i < sheet1.getLastRowNum(); i++) {
             Row row = sheet1.getRow(i);
-            System.out.println("Start parsing row ======" + i);
             UserDTO dto = (UserDTO) userRowHandler
                     .withRow(row)
                     .parseToDTO();

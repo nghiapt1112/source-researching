@@ -10,4 +10,5 @@ public class ValidationRule {
     private int min;
     private int max;
     private boolean require;
+    private String regex;
 }

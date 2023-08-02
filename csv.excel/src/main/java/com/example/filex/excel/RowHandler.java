@@ -22,10 +22,12 @@ public abstract class RowHandler<DTO extends BaseDTO> extends BaseHandler<DTO> {
         return this;
     }
 
+    /**
+     * TODO: Cho tôi xin ít logger
+     */
     protected DTO parseToDTO() {
-        this.getColumnHandlers().forEach(cellHandler -> {
-            cellHandler.validate();
-        });
+        System.out.println("Start parsing row ======" + row.getRowNum());
+        this.getColumnHandlers().forEach(cellHandler -> cellHandler.validate());
         this.parseDataFromCells();
         return this.dto;
     }

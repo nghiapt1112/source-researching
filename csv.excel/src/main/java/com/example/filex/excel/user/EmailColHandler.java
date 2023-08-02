@@ -22,7 +22,7 @@ public class EmailColHandler extends ColumnHandler<String> {
     }
 
     @Override
-    protected void validateOtherXXX() {
+    protected void validateCustomFields() {
 
     }
 
