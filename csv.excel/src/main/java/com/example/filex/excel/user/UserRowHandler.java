@@ -1,9 +1,11 @@
 package com.example.filex.excel.user;
 
 import com.example.filex.excel.RowHandler;
+import com.example.filex.excel.ValidationRule;
 import org.apache.poi.ss.usermodel.Row;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class UserRowHandler extends RowHandler<UserDTO> {
     private final EmailColHandler emailColHandler;
@@ -12,41 +14,37 @@ public class UserRowHandler extends RowHandler<UserDTO> {
     private final EmailColHandler emailColHandler4;
     private final EmailColHandler emailColHandler5;
     private final EmailColHandler emailColHandler6;
-    private final EmailColHandler emailColHandler7;
 
-    public UserRowHandler(
-            EmailColHandler emailColHandler,
-            EmailColHandler emailColHandler2,
-            EmailColHandler emailColHandler3,
-            EmailColHandler emailColHandler4,
-            EmailColHandler emailColHandler5,
-            EmailColHandler emailColHandler6,
-            EmailColHandler emailColHandler7
-    ) {
-        this.emailColHandler = emailColHandler;
-        this.emailColHandler2 = emailColHandler2;
-        this.emailColHandler3 = emailColHandler3;
-        this.emailColHandler4 = emailColHandler4;
-        this.emailColHandler5 = emailColHandler5;
-        this.emailColHandler6 = emailColHandler6;
-        this.emailColHandler7 = emailColHandler7;
-        this.columnHandlers = Arrays.asList(this.emailColHandler, this.emailColHandler2, this.emailColHandler3, this.emailColHandler4, this.emailColHandler5, this.emailColHandler6, this.emailColHandler7);
+    public UserRowHandler(ValidationRule validationRule) {
+        this.emailColHandler = new EmailColHandler(validationRule);
+        this.emailColHandler2 = new EmailColHandler(validationRule);
+        this.emailColHandler3 = new EmailColHandler(validationRule);
+        this.emailColHandler4 = new EmailColHandler(validationRule);
+        this.emailColHandler5 = new EmailColHandler(validationRule);
+        this.emailColHandler6 = new EmailColHandler(validationRule);
+        this.columnHandlers = Arrays.asList(this.emailColHandler, this.emailColHandler2, this.emailColHandler3, this.emailColHandler4, this.emailColHandler5, this.emailColHandler6);
     }
 
-
-    @Override
-    protected UserDTO getVal() {
-        return null;
-    }
-
+    /**
+     * Validate trong 1 row.
+     * Sau khi parse xong DTO, thì sẽ có data của DTO dó, ở đây minh validate các fields của DTO.
+     */
     @Override
     protected void validate() {
-
+        if (Objects.equals(this.dto.getFirstName(), this.dto.getLastName())) {
+            throw new RuntimeException("FirstName, lastName khong dc trung nhau");
+        }
+        //TODO: check các logic thưkc tế
     }
 
-
+    /**
+     * Add row vào, và set từng cell sẽ lấy giá trị ở col nào
+     *
+     * @param row
+     * @return
+     */
     @Override
-    public RowHandler withRow(Row row) {
+    public RowHandler withRow(Row row) throws Exception {
         super.withRow(row);
         this.emailColHandler.withCell(row.getCell(0));
         this.emailColHandler2.withCell(row.getCell(1));
@@ -57,5 +55,13 @@ public class UserRowHandler extends RowHandler<UserDTO> {
         return this;
     }
 
-
+    @Override
+    protected RowHandler parseDataFromCells() {
+        this.dto.setFirstName(this.emailColHandler.getVal());
+        this.dto.setLastName(this.emailColHandler2.getVal());
+        this.dto.setEmail(this.emailColHandler3.getVal());
+        this.dto.setPhone(this.emailColHandler4.getVal());
+        this.dto.setAddress(this.emailColHandler5.getVal());
+        return this;
+    }
 }

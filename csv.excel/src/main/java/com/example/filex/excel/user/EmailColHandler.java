@@ -6,14 +6,14 @@ import org.apache.poi.ss.usermodel.Cell;
 
 public class EmailColHandler extends ColumnHandler<String> {
 
+    public EmailColHandler(ValidationRule validationRule) {
+        super(validationRule);
+    }
+
     @Override
     protected ColumnHandler withCell(Cell cell) {
         this.cell = cell;
         return this;
-    }
-
-    public EmailColHandler(ValidationRule validationRule) {
-        super(validationRule);
     }
 
     @Override
