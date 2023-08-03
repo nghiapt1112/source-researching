@@ -20,10 +20,27 @@ public class MainHi {
 
         for (int i = 1; i < sheet1.getLastRowNum(); i++) {
             Row row = sheet1.getRow(i);
-            UserDTO dto = (UserDTO) userRowHandler
+            UserDTO userDTO = (UserDTO) userRowHandler
                     .withRow(row)
                     .parseToDTO();
-            System.out.println(dto);
+            System.out.println(userDTO);
+            // ListUserDTO listUserDTO
+            // checkDuplicateRow
+            // checkDuplicateDB(dbData, listUserDTO)
+            //
+            //
+            //
+            //
+            //
+            //
+            //
+            //
+            //
+            //
+            //
+            //
+            //
+            //
         }
     }
 
@@ -36,6 +53,15 @@ public class MainHi {
         ValidationRule emailValidationRule = new ValidationRule();
         emailValidationRule.setMin(1);
         return emailValidationRule;
+    }
+
+    public HeaderMapping getHeaderMapping(Row headerRow) {
+        // TODO:
+        //  - validate Header
+        HeaderMapping headerMapping = new HeaderMapping();
+        headerMapping.setIndex(0);
+        headerMapping.setColTitle("firstName");
+        return headerMapping;
     }
 
 }

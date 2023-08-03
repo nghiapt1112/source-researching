@@ -23,7 +23,7 @@ public class EmailColHandler extends ColumnHandler<String> {
 
     @Override
     protected void validateCustomFields() {
-
+        this.cell.getStringCellValue();
     }
 
 }

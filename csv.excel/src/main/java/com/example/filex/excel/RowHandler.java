@@ -10,7 +10,7 @@ public abstract class RowHandler<DTO extends BaseDTO> extends BaseHandler<DTO> {
     protected List<ColumnHandler> columnHandlers;
     protected Row row;
     protected DTO dto;
-
+    protected List<ExcelError> excelErrors;
     @Override
     protected DTO getVal() {
         return this.dto;
