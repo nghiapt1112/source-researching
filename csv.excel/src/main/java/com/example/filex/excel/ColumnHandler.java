@@ -3,12 +3,13 @@ package com.example.filex.excel;
 import org.apache.poi.ss.usermodel.Cell;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 public abstract class ColumnHandler<T> extends BaseHandler<T> {
     protected Cell cell;
 
-    public ColumnHandler(ValidationRule validationRule) {
+    public ColumnHandler(ValidationRule validationRule, List<ExcelError> excelErrors) {
         super();
         this.validationRule = validationRule;
     }

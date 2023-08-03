@@ -8,6 +8,8 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainHi {
     public static void main(String[] args) throws Exception {
@@ -16,7 +18,8 @@ public class MainHi {
         Sheet sheet1 = wb.getSheetAt(0);
 
         ValidationRule emailValidationRule = getValidationRule();
-        UserRowHandler userRowHandler = new UserRowHandler(emailValidationRule);
+        List<ExcelError> excelErrors = new ArrayList<>();
+        UserRowHandler userRowHandler = new UserRowHandler(emailValidationRule, excelErrors);
 
         for (int i = 1; i < sheet1.getLastRowNum(); i++) {
             Row row = sheet1.getRow(i);

@@ -1,10 +1,13 @@
 package com.example.filex.excel.user;
 
+import com.example.filex.excel.ExcelError;
+import com.example.filex.excel.ExcelErrorLevel;
 import com.example.filex.excel.RowHandler;
 import com.example.filex.excel.ValidationRule;
 import org.apache.poi.ss.usermodel.Row;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 public class UserRowHandler extends RowHandler<UserDTO> {
@@ -15,13 +18,14 @@ public class UserRowHandler extends RowHandler<UserDTO> {
     private final EmailColHandler emailColHandler5;
     private final EmailColHandler emailColHandler6;
 
-    public UserRowHandler(ValidationRule validationRule) {
-        this.emailColHandler = new EmailColHandler(validationRule);
-        this.emailColHandler2 = new EmailColHandler(validationRule);
-        this.emailColHandler3 = new EmailColHandler(validationRule);
-        this.emailColHandler4 = new EmailColHandler(validationRule);
-        this.emailColHandler5 = new EmailColHandler(validationRule);
-        this.emailColHandler6 = new EmailColHandler(validationRule);
+    public UserRowHandler(ValidationRule validationRule, List<ExcelError> excelErrors) {
+        this.emailColHandler = new EmailColHandler(validationRule, excelErrors);
+        this.emailColHandler2 = new EmailColHandler(validationRule, excelErrors);
+        this.emailColHandler3 = new EmailColHandler(validationRule, excelErrors);
+        this.emailColHandler4 = new EmailColHandler(validationRule, excelErrors);
+        this.emailColHandler5 = new EmailColHandler(validationRule, excelErrors);
+        this.emailColHandler6 = new EmailColHandler(validationRule, excelErrors);
+        this.excelErrors = excelErrors;
         this.columnHandlers = Arrays.asList(this.emailColHandler, this.emailColHandler2, this.emailColHandler3, this.emailColHandler4, this.emailColHandler5, this.emailColHandler6);
     }
 
@@ -32,7 +36,10 @@ public class UserRowHandler extends RowHandler<UserDTO> {
     @Override
     protected void validate() {
         if (Objects.equals(this.dto.getFirstName(), this.dto.getLastName())) {
-            throw new RuntimeException("FirstName, lastName khong dc trung nhau");
+            this.excelErrors.add(new ExcelError(getRow().getRowNum(), 0, "user_firstName_blank", ExcelErrorLevel.ERROR));
+            this.excelErrors.add(new ExcelError(getRow().getRowNum(), 0, "user_Email_blank", ExcelErrorLevel.ERROR));
+            this.excelErrors.add(new ExcelError(getRow().getRowNum(), 0, "user_phone_duplicate", ExcelErrorLevel.ERROR));
+//            throw new RuntimeException("FirstName, lastName khong dc trung nhau");
         }
         //TODO: check các logic thưkc tế
     }
