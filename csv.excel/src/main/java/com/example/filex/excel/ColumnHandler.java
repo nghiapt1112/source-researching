@@ -9,17 +9,17 @@ import java.util.Objects;
 public abstract class ColumnHandler<T> extends BaseHandler<T> {
     protected Cell cell;
 
-    public ColumnHandler(ValidationRule validationRule, List<ExcelError> excelErrors) {
+    public ColumnHandler(ValidationRule validationRule) {
         super();
         this.validationRule = validationRule;
     }
 
     protected abstract ColumnHandler withCell(Cell cell);
 
-    protected abstract void validateCustomFields();
+    protected abstract void validateCustomFields(List<ExcelError> excelErrors);
 
     @Override
-    protected void validate() {
+    protected void validate(List<ExcelError> excelErrors) {
         // TODO:
         //  - validate common here
         //  - Nếu là String thì check cái này
@@ -27,7 +27,8 @@ public abstract class ColumnHandler<T> extends BaseHandler<T> {
         if (this.getVal() instanceof String) {
             if (Objects.nonNull(this.validationRule.getMin())
                     && ((String) this.getVal()).length() < this.validationRule.getMax()) {
-                throw new RuntimeException(" =========== loi roi ==========");
+
+//                throw new RuntimeException(" =========== loi roi ==========");
             }
             // TODO: validate regex ??
         }
@@ -39,7 +40,7 @@ public abstract class ColumnHandler<T> extends BaseHandler<T> {
            // TODO: validate Date
         }
         // TODO: more more more
-        this.validateCustomFields();
+        this.validateCustomFields(excelErrors);
     }
 
 }

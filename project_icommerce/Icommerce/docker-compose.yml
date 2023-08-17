@@ -53,6 +53,8 @@ services:
       restart_policy:
         condition: on-failure
         max_attempts: 4
+    ports:
+      - 37080:37080
     environment:
       SERVER_PORT: 37080
     network_mode: "host"

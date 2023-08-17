@@ -28,8 +28,8 @@ spring:
           charSet: utf-8
           useUnicode: true
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-        format_sql: true
-        show_sql: true
+        format_sql: false
+        show_sql: false
         globally_quoted_identifiers: true
         generate-ddl: true
 server:

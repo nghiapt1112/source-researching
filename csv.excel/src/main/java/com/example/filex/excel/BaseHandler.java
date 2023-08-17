@@ -3,8 +3,9 @@ package com.example.filex.excel;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
+import java.util.List;
 
 @Getter
 @Setter
@@ -14,13 +15,13 @@ public abstract class BaseHandler<T> {
 
     protected abstract T getVal();
 
-    protected abstract void validate();
+    protected abstract void validate(List<ExcelError> excelErrors);
 
 
-    protected T getInstance() throws Exception {
-        Type t = getClass().getGenericSuperclass();
-        ParameterizedType pt = (ParameterizedType) t;
+    protected T createNewInstance() throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
+//        Type t = getClass().getGenericSuperclass();
+//        ParameterizedType pt = (ParameterizedType) t;
         return (T) ((Class) ((ParameterizedType) this.getClass().
-                getGenericSuperclass()).getActualTypeArguments()[0]).newInstance();
+                getGenericSuperclass()).getActualTypeArguments()[0]).getDeclaredConstructor().newInstance();
     }
 }

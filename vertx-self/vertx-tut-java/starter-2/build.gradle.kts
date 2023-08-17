@@ -35,6 +35,7 @@ dependencies {
   implementation("io.vertx:vertx-web")
   implementation("io.vertx:vertx-infinispan")
   implementation("io.vertx:vertx-config")
+  implementation("io.vertx:vertx-config-kubernetes-configmap")
 
 
   implementation("org.slf4j:slf4j-api:2.0.7")
