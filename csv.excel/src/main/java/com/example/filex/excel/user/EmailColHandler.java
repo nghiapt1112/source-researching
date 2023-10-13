@@ -15,14 +15,14 @@ public class EmailColHandler extends ColumnHandler<String> {
         super(validationRule);
     }
 
-    @Override
-    protected ColumnHandler withCell(Cell cell) {
-        this.cell = cell;
-        return this;
-    }
+//    @Override
+//    protected ColumnHandler withCell(Cell cell) {
+//        this.cell = cell;
+//        return this;
+//    }
 
     @Override
-    protected String getVal() {
+    public String getVal() {
         return this.cell.getRichStringCellValue().getString();
     }
 
@@ -34,10 +34,10 @@ public class EmailColHandler extends ColumnHandler<String> {
         String val = this.cell.getStringCellValue();
 
         if (Objects.nonNull(val)
-            && Objects.equals("Nghia 10", val)
+                && Objects.equals("Nghia 10", val)
                 || Objects.equals("Nghia 20", val)
-                || Objects.equals("Nghia 30", val) ) {
-            excelErrors.add(new ExcelError(cell.getColumnIndex(), cell.getColumnIndex(), "user_email_minLength_failed", ExcelErrorLevel.ERROR));
+                || Objects.equals("Nghia 30", val)) {
+            excelErrors.add(new ExcelError(cell.getColumnIndex(), cell.getColumnIndex(), "import.user.email_minLength_failed", ExcelErrorLevel.ERROR));
         }
     }
 

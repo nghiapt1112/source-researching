@@ -9,8 +9,5 @@
         <module name="vertx-oauth2" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="vertx-oauth2" target="11" />
-    </bytecodeTargetLevel>
   </component>
 </project>

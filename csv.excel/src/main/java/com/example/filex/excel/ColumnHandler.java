@@ -6,24 +6,34 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
-public abstract class ColumnHandler<T> extends BaseHandler<T> {
+public abstract class ColumnHandler<T> implements Handle<T> {
     protected Cell cell;
+    protected ValidationRule validationRule;
 
-    public ColumnHandler(ValidationRule validationRule) {
+    protected ColumnHandler(ValidationRule validationRule) {
         super();
         this.validationRule = validationRule;
     }
 
-    protected abstract ColumnHandler withCell(Cell cell);
+    @Override
+    public T getVal() {
+        return null;
+    }
+
+    public ColumnHandler withCell(Cell cell) {
+        this.cell = cell;
+        return this;
+    }
 
     protected abstract void validateCustomFields(List<ExcelError> excelErrors);
 
     @Override
-    protected void validate(List<ExcelError> excelErrors) {
+    public void validate(List<ExcelError> excelErrors) {
         // TODO:
         //  - validate common here
         //  - Nếu là String thì check cái này
-        //  - Thực ra có thể tạo thêm các TypedHandler để xử lý cái này, btw, tuỳ ng viết sau. :))
+        //  - Thực ra có thể tạo thêm các StringHandler, NumberHandler, DateTimeHandler, TimeHandler, .vv... để xử lý cái này.
+        //  btw, tuỳ ng viết sau. :))
         if (this.getVal() instanceof String) {
             if (Objects.nonNull(this.validationRule.getMin())
                     && ((String) this.getVal()).length() < this.validationRule.getMax()) {
@@ -33,11 +43,11 @@ public abstract class ColumnHandler<T> extends BaseHandler<T> {
             // TODO: validate regex ??
         }
         if (this.getVal() instanceof Number) {
-           // TODO: validate number
+            // TODO: validate number
         }
 
         if (this.getVal() instanceof Date) {
-           // TODO: validate Date
+            // TODO: validate Date
         }
         // TODO: more more more
         this.validateCustomFields(excelErrors);

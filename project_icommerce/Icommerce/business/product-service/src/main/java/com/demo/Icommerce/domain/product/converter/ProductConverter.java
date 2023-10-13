@@ -1,6 +1,7 @@
 package com.demo.Icommerce.domain.product.converter;
 
 import com.demo.Icommerce.domain.product.entity.Product;
+import com.demo.Icommerce.domain.product.payload.ProductCreateDTO;
 import com.demo.Icommerce.domain.product.payload.ProductResponse;
 
 import java.util.function.Function;
@@ -17,5 +18,11 @@ public class ProductConverter {
             return res;
         };
 
+    }
+
+    public static Function<ProductCreateDTO , Product> toEntity() {
+        return dto -> {
+            return new Product();
+        };
     }
 }

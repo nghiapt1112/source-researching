@@ -12,6 +12,13 @@ public class WriteErrorAction extends BaseAction {
     @Override
     public boolean execute(List<? extends BaseDTO> records, List<ExcelError> excelErrors) {
         excelErrors.forEach(System.out::println);
+        // TODO:
+        //  - get last Col in row
+        //  - errors.forEach (error -> {
+        //    sheet.getRow(error.getRowIndex).createCell(lastColIndex).setVal(error.getVal)
+        //
+        //
+        //  })
         return super.execute(records, excelErrors);
     }
 }

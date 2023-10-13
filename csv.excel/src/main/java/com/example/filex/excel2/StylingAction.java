@@ -8,7 +8,7 @@ import java.util.List;
 public class StylingAction extends BaseAction {
     @Override
     public boolean execute(List<? extends BaseDTO> records, List<ExcelError> excelErrors) {
-        return super.execute(records, excelErrors);
 
+        return super.execute(records, excelErrors);
     }
 }

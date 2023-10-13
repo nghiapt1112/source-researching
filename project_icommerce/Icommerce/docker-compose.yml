@@ -3,19 +3,19 @@ version: '3.9'
 
 services:
 ########### Consul #############
-  consul:
-    image: consul:1.9
-    mem_limit: 4098m
-    mem_reservation: 1024M
-    cpus: 1
-    deploy:
-      restart_policy:
-        condition: on-failure
-        max_attempts: 3
-    environment:
-      CONSUL_LOCAL_CONFIG: '{"leave_on_terminate": true}'
-    command: agent -dev -client=0.0.0.0
-    ports:
+#  consul:
+#    image: consul:1.9
+#    mem_limit: 4098m
+#    mem_reservation: 1024M
+#    cpus: 1
+#    deploy:
+#      restart_policy:
+#        condition: on-failure
+#        max_attempts: 3
+#    environment:
+#      CONSUL_LOCAL_CONFIG: '{"leave_on_terminate": true}'
+#    command: agent -dev -client=0.0.0.0
+#    ports:
       - 8502:8500
 ############### MySQL DEV ###############
   mysqlv8:

@@ -2,6 +2,7 @@ package com.demo.Icommerce.domain.product.service.impl;
 
 import com.demo.Icommerce.domain.product.converter.ProductConverter;
 import com.demo.Icommerce.domain.product.entity.Product;
+import com.demo.Icommerce.domain.product.payload.ProductCreateDTO;
 import com.demo.Icommerce.domain.product.payload.ProductPageRequest;
 import com.demo.Icommerce.domain.product.payload.ProductPageResponse;
 import com.demo.Icommerce.domain.product.payload.ProductResponse;
@@ -37,5 +38,10 @@ public class ProductServiceImpl implements ProductService {
             throw new DomainException("product.not_found");
         }
         return res.stream().map(el -> ProductConverter.toResponse().apply(el)).findFirst().get();
+    }
+
+    @Override
+    public Product create(ProductCreateDTO productCreateDTO) {
+        return this.productRepository.save(ProductConverter.toEntity().apply(productCreateDTO));
     }
 }

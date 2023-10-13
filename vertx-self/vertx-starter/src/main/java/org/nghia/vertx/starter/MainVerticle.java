@@ -32,6 +32,8 @@ public class MainVerticle extends AbstractVerticle {
     objectMapper.disable(SerializationFeature.WRITE_DATE_TIMESTAMPS_AS_NANOSECONDS);
     objectMapper.disable(DeserializationFeature.READ_DATE_TIMESTAMPS_AS_NANOSECONDS);
 
+    // để serialize date về Java time. vào bên trong để check.
+    // explain this code
     JavaTimeModule module = new JavaTimeModule();
     objectMapper.registerModule(module);
   }
@@ -53,7 +55,7 @@ public class MainVerticle extends AbstractVerticle {
     //setupLogging();
 
     //Create a PgPool instance
-    var pgPool = pgPool();
+    var pgPool = this.pgPool();
 
     //Creating PostRepository
     var postRepository = PostRepository.create(pgPool);
@@ -62,6 +64,7 @@ public class MainVerticle extends AbstractVerticle {
     var postHandlers = PostsHandler.create(postRepository);
 
     // Initializing the sample data
+    // TODO -> apply Flyway for DB initialization and migration instead of this.
     var initializer = DataInitializer.create(pgPool);
     initializer.run();
 

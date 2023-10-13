@@ -15,18 +15,19 @@ public class UserRowHandler extends RowHandler<UserDTO> {
     private final EmailColHandler emailColHandler2;
     private final EmailColHandler emailColHandler3;
     private final EmailColHandler emailColHandler4;
-    private final EmailColHandler emailColHandler5;
+    private final PhoneColHandler phoneColHandler;
     private final EmailColHandler emailColHandler6;
 
-    public UserRowHandler(ValidationRule validationRule, List<ExcelError> excelErrors) {
+    // rule cho các col
+    // excelErros
+    public UserRowHandler(ValidationRule validationRule) {
         this.emailColHandler = new EmailColHandler(validationRule);
         this.emailColHandler2 = new EmailColHandler(validationRule);
         this.emailColHandler3 = new EmailColHandler(validationRule);
         this.emailColHandler4 = new EmailColHandler(validationRule);
-        this.emailColHandler5 = new EmailColHandler(validationRule);
+        this.phoneColHandler = new PhoneColHandler(validationRule);
         this.emailColHandler6 = new EmailColHandler(validationRule);
-        this.excelErrors = excelErrors;
-        this.columnHandlers = Arrays.asList(this.emailColHandler, this.emailColHandler2, this.emailColHandler3, this.emailColHandler4, this.emailColHandler5, this.emailColHandler6);
+        this.columnHandlers = Arrays.asList(this.emailColHandler, this.emailColHandler2, this.emailColHandler3, this.emailColHandler4, this.phoneColHandler, this.emailColHandler6);
     }
 
     /**
@@ -36,9 +37,9 @@ public class UserRowHandler extends RowHandler<UserDTO> {
     @Override
     protected void validateWithinRow(List<ExcelError> excelErrors) {
         if (Objects.equals(this.emailColHandler.getVal(), "Nghia 31")) {
-            excelErrors.add(new ExcelError(getRowNum(), 0, "user_firstName_blank", ExcelErrorLevel.ERROR));
-            excelErrors.add(new ExcelError(getRowNum(), 0, "user_Email_blank", ExcelErrorLevel.ERROR));
-            excelErrors.add(new ExcelError(getRowNum(), 0, "user_phone_duplicate", ExcelErrorLevel.ERROR));
+            excelErrors.add(new ExcelError(getRowNum(), 0, "import.user.firstName_blank", ExcelErrorLevel.ERROR));
+            excelErrors.add(new ExcelError(getRowNum(), 0, "import.user.Email_blank", ExcelErrorLevel.ERROR));
+            excelErrors.add(new ExcelError(getRowNum(), 0, "import.user.phone_duplicate", ExcelErrorLevel.ERROR));
         }
         //TODO: check các logic thưkc tế
     }
@@ -55,8 +56,8 @@ public class UserRowHandler extends RowHandler<UserDTO> {
         this.emailColHandler.withCell(row.getCell(0));
         this.emailColHandler2.withCell(row.getCell(1));
         this.emailColHandler3.withCell(row.getCell(2));
-        this.emailColHandler4.withCell(row.getCell(3));
-        this.emailColHandler5.withCell(row.getCell(4));
+        this.phoneColHandler.withCell(row.getCell(3));
+        this.emailColHandler4.withCell(row.getCell(4));
         this.emailColHandler6.withCell(row.getCell(5));
         return this;
     }
@@ -66,8 +67,8 @@ public class UserRowHandler extends RowHandler<UserDTO> {
         this.dto.setFirstName(this.emailColHandler.getVal());
         this.dto.setLastName(this.emailColHandler2.getVal());
         this.dto.setEmail(this.emailColHandler3.getVal());
-        this.dto.setPhone(this.emailColHandler4.getVal());
-        this.dto.setAddress(this.emailColHandler5.getVal());
+        this.dto.setPhone(this.phoneColHandler.getVal());
+        this.dto.setAddress(this.emailColHandler6.getVal());
         return this;
     }
 }

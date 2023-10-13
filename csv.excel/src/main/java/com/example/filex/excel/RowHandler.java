@@ -5,21 +5,22 @@ import lombok.NoArgsConstructor;
 import org.apache.poi.ss.usermodel.Row;
 
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
 @Getter
 @NoArgsConstructor
-public abstract class RowHandler<DTO extends BaseDTO> extends BaseHandler<DTO> {
-    protected List<ColumnHandler> columnHandlers;
+public abstract class RowHandler<DTO extends BaseDTO> implements Handle<DTO> {
+    protected List<? extends ColumnHandler> columnHandlers;
     protected int rowNum;
     protected DTO dto;
-    protected List<ExcelError> excelErrors;
+    protected String strValue;
+    protected ValidationRule validationRule;
 
     @Override
-    protected DTO getVal() {
+    public DTO getVal() {
         return this.dto;
     }
-
 
     protected RowHandler withRow(Row row) {
         this.rowNum = row.getRowNum();
@@ -32,13 +33,16 @@ public abstract class RowHandler<DTO extends BaseDTO> extends BaseHandler<DTO> {
      * - Validate trong 1 row, tuỳ từ row sẽ có ràng buộc giữa các fields, nên hàm này tạo ra để validate các fields trong 1 row.
      */
     @Override
-    protected void validate(List<ExcelError> excelErrors) {
+    public void validate(List<ExcelError> excelErrors) {
         System.out.println("Validating row ======" + rowNum);
         this.getColumnHandlers().forEach(cellHandler -> cellHandler.validate(excelErrors));
         this.validateWithinRow(excelErrors);
     }
 
-    public DTO parseToDTO() {
+    /**
+     * Validate_Cell -> Validate->Row -> getCellValue -> MapToObjectDTO -> Return DTO
+     */
+    public DTO parseToDTO(List<ExcelError> excelErrors) {
         int errSizeBeforeValidationSteps = excelErrors.size();
         this.validate(excelErrors);
         if (excelErrors.size() > errSizeBeforeValidationSteps) { // Contain error if errorSize increase

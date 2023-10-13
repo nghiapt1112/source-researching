@@ -17,7 +17,13 @@ import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.DefaultHandler;
 
 public class SaxEventUserModel {
+	public static void main(String[] args) throws Exception {
+		SaxEventUserModel ss = new SaxEventUserModel();
 
+		String excelFilePath = "/Users/ptnghia1/data/sources/nghia/source-researching/csv.excel/src/main/resources/userImport.xlsx";
+
+		ss.processSheets(excelFilePath);
+	}
 	public void processSheets(String filename) throws Exception {
 		OPCPackage pkg = OPCPackage.open(filename);
 		XSSFReader r = new XSSFReader(pkg);

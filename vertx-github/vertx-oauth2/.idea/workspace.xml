@@ -5,61 +5,78 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b5c2f59c-55c7-4297-8584-3114201c31a0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../React-Firebase-Cloud-Messaging-Demo/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../React-Firebase-Cloud-Messaging-Demo/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../React-Firebase-Cloud-Messaging-Demo/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../React-Firebase-Cloud-Messaging-Demo/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../React-Firebase-Cloud-Messaging-Demo/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../React-Firebase-Cloud-Messaging-Demo/public/firebase-messaging-sw.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../React-Firebase-Cloud-Messaging-Demo/public/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../React-Firebase-Cloud-Messaging-Demo/public/logo192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../React-Firebase-Cloud-Messaging-Demo/public/logo512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../React-Firebase-Cloud-Messaging-Demo/public/manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../React-Firebase-Cloud-Messaging-Demo/public/robots.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../React-Firebase-Cloud-Messaging-Demo/src/App.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../React-Firebase-Cloud-Messaging-Demo/src/App.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../React-Firebase-Cloud-Messaging-Demo/src/App.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../React-Firebase-Cloud-Messaging-Demo/src/firebaseNotifications/Notification.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../React-Firebase-Cloud-Messaging-Demo/src/firebaseNotifications/firebase.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../React-Firebase-Cloud-Messaging-Demo/src/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../React-Firebase-Cloud-Messaging-Demo/src/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../React-Firebase-Cloud-Messaging-Demo/src/logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../React-Firebase-Cloud-Messaging-Demo/src/reportWebVitals.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../React-Firebase-Cloud-Messaging-Demo/src/setupTests.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../React-Firebase-Cloud-Messaging-Demo/yarn.lock" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../csv.excel/src/main/java/com/example/filex/excel/Handle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../csv.excel/src/main/java/com/example/filex/excel/user/PhoneColHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../project_icommerce/Icommerce/business/product-service/src/main/java/com/demo/Icommerce/domain/product/payload/ProductCreateDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../csv.excel/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/../../csv.excel/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../csv.excel/src/main/java/com/example/filex/excel/BaseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../csv.excel/src/main/java/com/example/filex/excel/BaseHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../csv.excel/src/main/java/com/example/filex/excel/ColumnHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../csv.excel/src/main/java/com/example/filex/excel/ColumnHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../csv.excel/src/main/java/com/example/filex/excel/RowHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../csv.excel/src/main/java/com/example/filex/excel/RowHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../csv.excel/src/main/java/com/example/filex/excel/user/EmailColHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../csv.excel/src/main/java/com/example/filex/excel/user/EmailColHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../csv.excel/src/main/java/com/example/filex/excel/user/UserRowHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../csv.excel/src/main/java/com/example/filex/excel/user/UserRowHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../csv.excel/src/main/java/com/example/filex/excel2/A2Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../csv.excel/src/main/java/com/example/filex/excel2/ParseDTOAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../csv.excel/src/main/java/com/example/filex/excel2/ParseDTOAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../csv.excel/src/main/java/com/example/filex/excel2/StylingAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../csv.excel/src/main/java/com/example/filex/excel2/StylingAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../csv.excel/src/main/java/com/example/filex/excel2/WriteErrorAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../csv.excel/src/main/java/com/example/filex/excel2/WriteErrorAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../csv.excel/src/main/java/com/example/filex/largfile/SaxEventUserModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../csv.excel/src/main/java/com/example/filex/largfile/SaxEventUserModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../csv.excel/src/main/resources/userImport.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../csv.excel/src/main/resources/userImport.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../csv.excel/src/main/resources/userImport.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../csv.excel/src/main/resources/userImport.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../csv.excel/src/test/java/com/example/filex/ApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../csv.excel/src/test/java/com/example/filex/ApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../vertx/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-starter/.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-starter/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-starter/README.adoc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-starter/build.gradle.kts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-starter/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-starter/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-starter/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-starter/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-starter/settings.gradle.kts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-starter/src/main/java/org/nghia/vertx/starter/CreatePostCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-starter/src/main/java/org/nghia/vertx/starter/DataInitializer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-starter/src/main/java/org/nghia/vertx/starter/MainVerticle.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-starter/src/main/java/org/nghia/vertx/starter/Post.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-starter/src/main/java/org/nghia/vertx/starter/PostHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-starter/src/main/java/org/nghia/vertx/starter/PostNotFoundException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-starter/src/main/java/org/nghia/vertx/starter/PostRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-starter/src/main/java/org/nghia/vertx/starter/PostsHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-starter/src/main/resources/config.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-starter/src/test/java/org/nghia/vertx/starter/TestMainVerticle.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-tut-java/starter-2.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-tut-java/starter-2/.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-tut-java/starter-2/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-tut-java/starter-2/README.adoc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-tut-java/starter-2/build.gradle.kts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-tut-java/starter-2/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-tut-java/starter-2/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-tut-java/starter-2/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-tut-java/starter-2/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-tut-java/starter-2/settings.gradle.kts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-tut-java/starter-2/src/main/java/com/nghia/vertx/starter_2/MainVerticle.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../vertx/vertx-tut-java/starter-2/src/test/java/com/nghia/vertx/starter_2/TestMainVerticle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../project_icommerce/Icommerce/business/product-service/src/main/java/com/demo/Icommerce/domain/product/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../project_icommerce/Icommerce/business/product-service/src/main/java/com/demo/Icommerce/domain/product/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../project_icommerce/Icommerce/business/product-service/src/main/java/com/demo/Icommerce/domain/product/converter/ProductConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../project_icommerce/Icommerce/business/product-service/src/main/java/com/demo/Icommerce/domain/product/converter/ProductConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../project_icommerce/Icommerce/business/product-service/src/main/java/com/demo/Icommerce/domain/product/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../project_icommerce/Icommerce/business/product-service/src/main/java/com/demo/Icommerce/domain/product/service/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../project_icommerce/Icommerce/business/product-service/src/main/java/com/demo/Icommerce/domain/product/service/impl/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../project_icommerce/Icommerce/business/product-service/src/main/java/com/demo/Icommerce/domain/product/service/impl/ProductServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../project_icommerce/Icommerce/business/product-service/src/main/resources/application-test.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../project_icommerce/Icommerce/business/product-service/src/main/resources/application-test.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../project_icommerce/Icommerce/business/product-service/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../project_icommerce/Icommerce/business/product-service/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../project_icommerce/Icommerce/business/product-service/src/test/java/com/demo/Icommerce/api/ProductControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../project_icommerce/Icommerce/business/product-service/src/test/java/com/demo/Icommerce/api/ProductControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../project_icommerce/Icommerce/business/product-service/src/test/resources/product/1_product_testSet.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../project_icommerce/Icommerce/business/product-service/src/test/resources/product/1_product_testSet.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../project_icommerce/Icommerce/deployment/buss-product" beforeDir="false" afterPath="$PROJECT_DIR$/../../project_icommerce/Icommerce/deployment/buss-product" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../project_icommerce/Icommerce/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../project_icommerce/Icommerce/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../project_icommerce/Icommerce/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/../../project_icommerce/Icommerce/gradlew" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../project_icommerce/eCommerce" beforeDir="false" afterPath="$PROJECT_DIR$/../../project_icommerce/eCommerce" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../spring-boot-log4j2" beforeDir="false" afterPath="$PROJECT_DIR$/../../spring-boot-log4j2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../teams-dailyreport" beforeDir="false" afterPath="$PROJECT_DIR$/../../teams-dailyreport" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../metrics-prometheus-grafana-howto" beforeDir="false" afterPath="$PROJECT_DIR$/../metrics-prometheus-grafana-howto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sample-vertx-microservices" beforeDir="false" afterPath="$PROJECT_DIR$/../sample-vertx-microservices" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vertx-4-reactive-rest-api" beforeDir="false" afterPath="$PROJECT_DIR$/../vertx-4-reactive-rest-api" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vertx-4-reactive-rest-api-2" beforeDir="false" afterPath="$PROJECT_DIR$/../vertx-4-reactive-rest-api-2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vertx-blueprint-microservice" beforeDir="false" afterPath="$PROJECT_DIR$/../vertx-blueprint-microservice" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_13_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_jknack_handlebars_4_3_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_buffer_4_1_74_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_4_1_74_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_dns_4_1_74_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_http2_4_1_74_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_http_4_1_74_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_socks_4_1_74_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_common_4_1_74_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_handler_4_1_74_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_handler_proxy_4_1_74_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_resolver_4_1_74_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_resolver_dns_4_1_74_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_tcnative_classes_2_0_48_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_transport_4_1_74_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_vertx_vertx_auth_common_4_2_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_vertx_vertx_auth_oauth2_4_2_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_vertx_vertx_bridge_common_4_2_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_vertx_vertx_core_4_2_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_vertx_vertx_junit5_4_2_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_vertx_vertx_web_4_2_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_vertx_vertx_web_client_4_2_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_vertx_vertx_web_common_4_2_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_vertx_vertx_web_templ_handlebars_4_2_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_7_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_7_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_params_5_8_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_7_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_7_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_21.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,13 +89,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="useMavenConfig" value="true" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2OlQchSUMmoQ2AOYrU5uFWpoypH" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -91,7 +104,9 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/ptnghia1/data/sources/nghia/source-researching/vertx-github/vertx-oauth2&quot;
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/ptnghia1/data/sources/nghia/source-researching/vertx-github/vertx-oauth2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -105,6 +120,8 @@
       <workItem from="1682132770308" duration="42000" />
       <workItem from="1686214928692" duration="8000" />
       <workItem from="1686504742899" duration="14000" />
+      <workItem from="1695749218506" duration="4000" />
+      <workItem from="1695749234424" duration="33000" />
     </task>
     <servers />
   </component>

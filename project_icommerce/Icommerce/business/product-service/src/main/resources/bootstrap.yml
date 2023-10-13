@@ -6,7 +6,7 @@ spring:
     name: product-service
   cloud:
     consul:
-      host: localhost
+      host: 18.140.210.253
       port: 8502
       config:
         format: PROPERTIES
