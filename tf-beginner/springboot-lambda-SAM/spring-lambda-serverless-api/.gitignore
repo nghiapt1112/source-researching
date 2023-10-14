@@ -1,0 +1,8 @@
+.idea
+**/.terraform
+**/*.zip
+**/*.gz
+**/*.serverless
+**/target
+**/.aws-sam
+**node_modules
