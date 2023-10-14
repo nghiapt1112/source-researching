@@ -7,7 +7,13 @@ app.get('/', (req, res) => res.send('GET request'));
 app.post('/', (req, res) => res.send('POST request'));
 app.put('/', (req, res) => res.send('PUT request'));
 app.delete('/', (req, res) => res.send('DELETE request'));
+app.get("/auth", (req, res, next) => {
+  const cdate = new Date();
 
+  return res.status(200).json({
+    message: `Hello from auth path! ${cdate}`,
+  });
+});
 // Global exception handler
 app.use((err, req, res, next) => {
   console.error(err.stack);
