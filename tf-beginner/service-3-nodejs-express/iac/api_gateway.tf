@@ -6,8 +6,8 @@ resource "aws_api_gateway_rest_api" "example" {
 resource "aws_api_gateway_resource" "proxy" {
   rest_api_id = "${aws_api_gateway_rest_api.example.id}"
   parent_id   = "${aws_api_gateway_rest_api.example.root_resource_id}"
-  path_part   = "{proxy+}" #activates proxy behavior, which means that this resource will match any request path
-#  path_part   = "auth" #activates proxy behavior, which means that this resource will match any request path
+#  path_part   = "{proxy+}" #activates proxy behavior, which means that this resource will match any request path
+  path_part   = "service3" #activates proxy behavior, which means that this resource will match any request path
 }
 
 resource "aws_api_gateway_method" "proxy" {

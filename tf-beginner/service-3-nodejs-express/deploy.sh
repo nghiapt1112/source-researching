@@ -9,3 +9,4 @@
 cd ./iac
 terraform apply -var="app_version=1.0.6" --auto-approve
 #terraform apply --auto-approve
+curl "$(terraform output -raw base_url)/"
