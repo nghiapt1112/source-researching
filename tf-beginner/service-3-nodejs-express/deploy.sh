@@ -6,7 +6,8 @@
 ###
 #zip example.zip ../source-code/index.js
 #aws s3 cp ./example.zip s3://nathan-tf-nodejs-express-gw1/v1.0.5/example.zip
-cd ./iac
-terraform apply -var="app_version=1.0.6" --auto-approve
+cd /Users/ptnghia1/data/sources/nghia/source-researching/tf-beginner/service-3-nodejs-express/iac
+terraform apply -var="app_version=1.0.7" --auto-approve
 #terraform apply --auto-approve
-curl "$(terraform output -raw base_url)/"
+curl "$(terraform output -raw base_url)/service2"
+curl "$(terraform output -raw base_url)/service3"

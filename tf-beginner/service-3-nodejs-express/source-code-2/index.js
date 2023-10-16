@@ -5,17 +5,17 @@ app.use(express.json());
 app.get('/health', (req, res) => res.send('Success'));
 
 const router = express.Router();
-app.use('/service3', router);
+app.use('/service2', router);
 
-router.get('/', (req, res) => res.send('GET request'));
+router.get('/', (req, res) => res.send('GET request service 2'));
 router.post('/', (req, res) => res.send('POST request'));
 router.put('/', (req, res) => res.send('PUT request'));
 router.delete('/', (req, res) => res.send('DELETE request'));
-router.get("/auth3", (req, res, next) => {
+router.get("/auth2", (req, res, next) => {
   const cdate = new Date();
 
   return res.status(200).json({
-    message: `Hello from auth path! ${cdate}`,
+    message: `Hello from auth path service 2! ${cdate}`,
   });
 });
 // Global exception handler

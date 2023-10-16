@@ -6,11 +6,6 @@ data "archive_file" "lambda_hello_world" {
   output_path = "example.zip"
 }
 
-resource "aws_s3_bucket" "lambda_bucket" {
-  bucket = "nathan-tf-nodejs-express-gw1"
-  #  acl    = "private"
-}
-
 resource "aws_s3_object" "lambda_hello_world" {
   bucket = aws_s3_bucket.lambda_bucket.id
 
@@ -20,7 +15,7 @@ resource "aws_s3_object" "lambda_hello_world" {
 }
 
 
-resource "aws_lambda_function" "example" {
+resource "aws_lambda_function" "lambda-service1" {
   function_name = "nodejs-express-gw1"
 
   s3_bucket = aws_s3_bucket.lambda_bucket.id
@@ -41,7 +36,7 @@ resource "aws_lambda_function" "example" {
 }
 
 resource "aws_cloudwatch_log_group" "hello_world" {
-  name = "/aws/lambda/${aws_lambda_function.example.function_name}"
+  name = "/aws/lambda/${aws_lambda_function.lambda-service1.function_name}"
   retention_in_days = 14
 }
 
@@ -64,44 +59,22 @@ resource "aws_iam_role_policy" "ts_lambda_role_policy" {
   name   = "my-lambda-policy"
 }
 
-# IAM role which dictates what other AWS services the Lambda function
-# may access.
-resource "aws_iam_role" "lambda_exec" {
-  name = "serverless_example_lambda"
-
-  assume_role_policy = <<EOF
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Action": "sts:AssumeRole",
-      "Principal": {
-        "Service": "lambda.amazonaws.com"
-      },
-      "Effect": "Allow",
-      "Sid": ""
-    }
-  ]
-}
-EOF
-}
-
-resource "aws_iam_role_policy_attachment" "lambda_policy" {
-  role       = aws_iam_role.lambda_exec.name
-  policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
-}
+#
+#resource "aws_iam_role_policy_attachment" "lambda_policy" {
+#  role       = aws_iam_role.lambda_exec.name
+#  policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+#}
 
 
 resource "aws_lambda_permission" "apigw" {
   statement_id  = "AllowAPIGatewayInvoke"
   action        = "lambda:InvokeFunction"
-  function_name = "${aws_lambda_function.example.function_name}"
+  function_name = "${aws_lambda_function.lambda-service1.function_name}"
   principal     = "apigateway.amazonaws.com"
 
   # The /*/* portion grants access from any method on any resource
   # within the API Gateway "REST API".
-  source_arn = "${aws_api_gateway_rest_api.example.execution_arn}/*/*"
-}
+  source_arn = "${aws_api_gateway_rest_api.nathan-apigw.execution_arn}/*/*"
+#  source_arn = "${aws_api_gateway_method.proxy-method-service1.arn}/*/*"
 
-variable "app_version" {
 }
