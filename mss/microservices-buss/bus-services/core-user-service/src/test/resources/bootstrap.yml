@@ -1,0 +1,5 @@
+#Disable cloud config to have local unit test
+spring:
+  cloud:
+    config:
+      enabled: false

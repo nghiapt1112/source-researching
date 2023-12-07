@@ -1,0 +1,62 @@
+server:
+  port: 8765
+  # ssl:
+    # key-store: classpath:server.jks
+    # key-store-password: password
+    # key-password: password
+    #enabled: false
+    # Problem with trust-store properties?
+    #
+    # Instead use: java -Djavax.net.debug=ssl -Djavax.net.ssl.trustStore=src/main/resources/truststore.jks -Djavax.net.ssl.trustStorePassword=password -jar build/libs/*.jar
+    #
+    # trust-store: classpath:truststore.jks
+    #trust-store: src/main/resources/truststore.jks
+    #trust-store-password: password
+
+
+##########################
+#OAUTH2 CONFIGURATION
+##########################
+my.security.issuer-claim-verifier.url: http://SUP-AUTH/
+
+my.security.oauth2:
+  remote-token-endpoint:
+    uri: uaa/oauth/check_token
+    authServiceId: SUP-AUTH
+  client:
+    client-id: fooClientIdPassword
+    client-secret: secret
+  user-service:
+    path: /user_path/**
+    expression: hasRole('ADMIN')
+  foo-service:
+    path: /foos/**
+    expression: (#oauth2.hasScope('webshop') or #oauth2.hasScope('read')) and hasRole('ADMIN')
+  composite-service:
+    path: /compose/**
+    expression: hasRole('ADMIN') or hasRole('READ')
+  backend-service:
+    path: /backend_path/**
+    expression: hasRole('ADMIN') or hasRole('READ')
+
+##########################
+#ZUUL PROXY
+##########################
+
+zuul:
+  #RibbonRoutingFilter.route.disable: true // using custom routingFilter
+  ignoredServices: "*"
+  routes:
+    bus-product:
+      path: /product/**
+#      stripPrefix: false
+    bus-composite:
+      path: /compose/**
+    bus-user:
+      path: /user_path/**
+    test-tenant2:
+      path: /compose2/**
+    test-tenant1:
+      path: /compose1/**
+    bus-backend:
+      path: /backend_path/**

@@ -1,0 +1,11 @@
+rootProject.name = 'microservices-libraries'
+
+include 'common-utils'
+//include 'email-utils'
+//include 'common-repository-mongo'
+//include 'common-repository-mysql'
+
+project(':common-utils').name = 'cu'
+//project(':email-utils').name = 'eu'
+//project(':common-repository-mongo').name = 'rep-mongo'
+//project(':common-repository-mysql').name = 'rep-mysql'
