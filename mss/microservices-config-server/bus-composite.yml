@@ -1,0 +1,8 @@
+server:
+  port: 38764
+
+#spring:
+#  oauth2:
+#    resource:
+#      userInfoUri: http://nghia.ms:9999/uaa/userInfoUri
+my.config: name1

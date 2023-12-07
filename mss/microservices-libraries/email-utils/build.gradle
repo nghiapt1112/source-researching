@@ -1,0 +1,64 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+    id 'org.springframework.boot' version '2.2.6.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+}
+
+group = 'com.nghia.libraries.commons.mss'
+version = 'RC'
+sourceCompatibility = '1.8'
+
+configurations {
+    developmentOnly
+    runtimeClasspath {
+        extendsFrom developmentOnly
+    }
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'http://oss.jfrog.org/artifactory/oss-snapshot-local/' } // Swagger
+}
+
+dependencies {
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+
+// Day la cai cu
+    compile("org.apache.commons:commons-collections4:4.1")
+    compile("commons-io:commons-io:2.6")
+    compile("org.apache.commons:commons-lang3:3.7")
+
+    implementation('org.springframework.boot:spring-boot-starter-logging')
+    implementation('org.springframework.boot:spring-boot-autoconfigure')
+    implementation('javax.mail:mail:1.4.1')
+    implementation('org.springframework:spring-context-support')
+    implementation project(':cu')
+
+}
+
+task sourceJar(type: Jar) {
+    from sourceSets.main.allJava
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            groupId = 'com.nghia.tut.utils'
+            artifactId = "eu-RC"
+            version = "1.0"
+
+            from components.java
+
+            artifact sourceJar {
+                classifier "sources"
+            }
+
+        }
+    }
+}

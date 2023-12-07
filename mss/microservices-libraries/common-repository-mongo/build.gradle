@@ -1,0 +1,38 @@
+buildscript {
+    ext {
+        groupName = 'com.nghia.tut.utils'
+        artifact = 'nghia-repository-mongo'
+        nghiaVersion = 'RC1'
+    }
+}
+
+dependencies {
+    implementation('org.springframework.boot:spring-boot-starter-data-mongodb')
+    implementation project(':cu')
+}
+
+jar {
+    baseName = "${artifact}"
+    version = "${nghiaVersion}"
+}
+
+task sourceJar(type: Jar) {
+    from sourceSets.main.allJava
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            groupId = 'com.nghia.tut.utils'
+            artifactId = "${artifact}"
+            version = "${nghiaVersion}"
+
+            from components.java
+
+            artifact sourceJar {
+                classifier "sources"
+            }
+
+        }
+    }
+}
