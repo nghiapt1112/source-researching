@@ -1,0 +1,26 @@
+{
+  "@type": "MessageCard",
+  "@context": "http://schema.org/extensions",
+  "themeColor": "0076D7",
+  "summary": "...",
+  "sections": [
+    {
+      "activityImage": "https://en.gravatar.com/userimage/180126290/6c0a05a131ad0c17b4bbf43a5c3c74ea.png",
+      "facts": [
+        {
+          "name": "Assigned to",
+          "value": "All members"
+        },
+        {
+          "name": "Status",
+          "value": "Started"
+        },
+        {
+          "name": "Note",
+          "value": "1. Mọi người phải logwork.\n2. Các tasks phải điền các fields Date.\n3. Report đầy đủ thông tin cần thiết."
+        }
+      ],
+      "markdown": true
+    }
+  ]
+}
