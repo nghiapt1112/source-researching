@@ -1,0 +1,67 @@
+server:
+  port: 8888
+spring.output.ansi.enabled: ALWAYS
+#  ssl:
+    #key-store: classpath:server.jks
+#    key-store-password: password
+    #key-password: password
+
+#security.basic.enabled: false
+spring.security.user.name: user
+spring.security.user.password: password
+
+# Configuration of a local Git-repo for development locally without Docker
+# note that we are still using git; We just access the git-repo via file: protocol
+#spring.cloud.config.server.git.uri: file:///${PWD}/../../../config-server/
+
+#spring.cloud.config.server.monitor.github.enabled: true
+spring.cloud.config.server.git:
+#  uri: https://github.com/nghiapt1112/microservices-config-server.git
+  uri: file:../../microservices-config-server
+#  repos:
+#    - patterns: dev
+#      uri: https://github.com/nghialunhaiha/microservice-configserver.git
+#    development:
+#      pattern:
+#        - '*/dev'
+#      uri: https://github.com/nghialunhaiha/microservice-configserver.git
+
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    serviceUrl:
+      defaultZone: http://eureka.demomicroservices.com/eureka/
+
+#logging:
+#  level:
+#    root: WARN
+#    se.callista: INFO
+
+#    org.springframework.amqp.rabbit.listener.BlockingQueueConsumer: INFO
+#    org.apache.catalina.session.ManagerBase: INFO
+
+    # Set INFO to see the allocated port
+#    org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer: INFO
+#    org.springframework.boot.context.embedded.undertow.UndertowEmbeddedServletContainer: INFO
+
+#spring:
+#  rabbitmq:
+#    virtual-host: /
+#    host: 192.168.66.72
+#    port: 5672
+
+---
+# For deployment in Docker containers
+spring:
+  profiles: local
+  cloud:
+    config:
+      server.git.uri: file:../../microservices-config-server
+
+---
+spring:
+  profiles: dev
+spring.cloud.config.server.git.uri: url_link
+spring.cloud.config.server.git.clone-on-start: true

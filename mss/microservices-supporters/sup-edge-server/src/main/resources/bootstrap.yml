@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: sup-edge
+  cloud:
+    config:
+      uri: ${vcap.services.${PREFIX:}configserver.cremy.security.oauth2.client.client-iddentials.uri:http://user:password@192.168.66.72:8888}

@@ -1,0 +1,18 @@
+bin/
+.gradle
+/build/
+**./**/build
+/target/
+**./**/target
+**./**/.gradle
+**./**/out
+**/out
+*.class
+**./**/.classpath
+**./**/.project
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr

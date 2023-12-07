@@ -1,0 +1,32 @@
+server:
+  port: 9999
+  contextPath: /uaa
+  # ssl:
+    # key-store: classpath:server.jks
+    # key-store-password: password
+    # key-password: password
+
+
+security.user.password: password
+
+security:
+  oauth2:
+    client:
+      clientId: acme
+      clientSecret: acmesecret
+      authorized-grant-types: authorization_code,refresh_token,implicit,password,client_credentials
+      scope: webshop
+      refresh-token-validity-seconds: 345600
+      access-token-validity-seconds: 172800
+
+
+spring.data:
+  mongodb:
+    port: 27017
+    host: nghia.tool
+    database: DB_auth
+
+spring.redis:
+  host: nghia.ms
+  pool:
+    max-active: 8

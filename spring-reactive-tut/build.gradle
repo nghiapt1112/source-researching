@@ -1,0 +1,34 @@
+plugins {
+    id 'org.springframework.boot' version '2.1.8.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'java'
+    id 'idea'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+    mavenCentral()
+}
+configurations {
+    developmentOnly
+    runtimeClasspath {
+        extendsFrom developmentOnly
+    }
+}
+
+configurations.compile {
+    exclude group: 'org.hibernate.validator', module: 'hibernate-validator'
+    exclude group: 'org.synchronoss.cloud', module: 'nio-multipart-parser'
+    exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+    exclude group: 'com.fasterxml.jackson.datatype', module: 'jackson-datatype-jsr310'
+    exclude group: 'org.yaml', module: 'snakeyaml'
+}
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+}
